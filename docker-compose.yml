@@ -1,0 +1,44 @@
+version: "3.7"
+
+services:
+    # Mysql Server
+    db:
+        image: mysql:5.7
+        # mysql utf-8 설정
+        command: 
+            - --character-set-server=utf8 
+            - --collation-server=utf8_unicode_ci
+        # db password 및 db 자동 생성
+        environment:
+            MYSQL_ROOT_PASSWORD: "1234"
+            MYSQL_DATABASE: "mineCollector"
+            TZ: "Asia/Seoul"
+        ports:
+            - "3307:3306" 
+        # db data backUp
+        volumes:
+            - ./docker/mysql/data:/var/lib/mysql
+    # node BackEnd Server
+    back-end:
+        ports:
+            - "8000:8000"
+        restart: always
+        build:
+            context: "./mine-back"
+            dockerfile: "Dockerfile"
+        depends_on:
+            - db
+        environment:
+            # MYSQL DB의 설정이 끝날 때까지 대기.
+            WAIT_HOSTS: db:3306
+        volumes:
+            - ./mine-back:/app
+    # React FrontEnd Server
+    front-end:
+        ports:
+            - "3000:80"
+        build:
+            context: "./mine-front"
+            dockerfile: "Dockerfile"
+        volumes:
+            - ./mine-front:/app
