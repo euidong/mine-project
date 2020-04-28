@@ -2,5 +2,5 @@
 
 - mine swipper Front Page
 
-- test page[https://www.euidong.github.io/mine-collector]
+- test page[https://euidong.github.io/mine-collector]
 
