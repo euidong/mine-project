@@ -206,8 +206,8 @@ function Board () {
     };
     
     const MINE_PERCENT = 0.1;
-    const HEIGHT = 1;
-    const WIDTH = 1;
+    const HEIGHT = 8;
+    const WIDTH = 8;
 
     const result = useRef(initialBoard(HEIGHT, WIDTH, MINE_PERCENT));
     
