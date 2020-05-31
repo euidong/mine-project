@@ -15,6 +15,21 @@ export default (Sequelize, DataTypes) => {
             field: "time",
             type: DataTypes.INTEGER,
             allowNull: false
+        },
+        width: {
+          field: "width",
+          type: DataTypes.STRING,
+          allowNull: false
+        },
+        height: {
+          field: "height",
+          type: DataTypes.STRING,
+          allowNull: false
+        },
+        minePercent: {
+          field: "minePercent",
+          type: DataTypes.STRING,
+          allowNull: false
         }
     }, {
         charset: 'utf8',

@@ -27,8 +27,11 @@ app.post('/record/upload', async (req, res) => {
     console.log(req.body);
     try {
         await db.Record.create({
-            nickName:req.body.nickName,
-            time:req.body.time
+            nickName: req.body.nickName,
+            time: req.body.time,
+            width: req.body.width,
+            height: req.body.height,
+            minePercent: req.body.minePercent
         });
         res.send("success");
     }catch{
@@ -38,8 +41,11 @@ app.post('/record/upload', async (req, res) => {
 
 app.get('/record/list', async (req, res) => {
     const a = await db.Record.findAll({
-        attributes: ['nickName', 'time', 'createdAt'],
+        attributes: ['nickName', 'time', 'width', 'height', 'minePercent', 'createdAt'],
         order: [
+            'width',
+            'height',
+            'minePercent',
             'time',
             'createdAt'
         ]
