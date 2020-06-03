@@ -33,9 +33,9 @@ app.post('/record/upload', async (req, res) => {
             height: req.body.height,
             minePercent: req.body.minePercent
         });
-        res.send("success");
+        res.send('success');
     }catch{
-        res.send("error");
+        res.send('error');
     }
 });
 

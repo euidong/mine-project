@@ -31,8 +31,6 @@ services:
         environment:
             # MYSQL DB의 설정이 끝날 때까지 대기.
             WAIT_HOSTS: db:3306
-        volumes:
-            - ./mine-back:/app
     # React FrontEnd Server
     front-end:
         ports:
