@@ -16,10 +16,10 @@ function posetRecord (nickName, time, height, width, minePercent) {
     .then(res => {
       if (res.data === "success")
           return 'success';
-        return 'error';
+      else
+          return 'error';
     });
-
-    return result.data;
+    return result;
   } catch(err) {
     return '잘못된 요청입니다.';
   }

@@ -19,6 +19,7 @@ function ResultModal(props) {
             WIDTH,
             MINE_PERCENT
         );
+        console.log(result);
         if (result === 'success') {
           alert('기록 완료');
           window.location.reload();

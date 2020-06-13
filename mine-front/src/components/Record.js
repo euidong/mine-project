@@ -2,9 +2,8 @@ import React from 'react';
 import getAllRecord from '../requests/record/getAllRecord';
 import useLoading from '../requests/loader';
 
-function Record() {
-  const record = useLoading(getAllRecord)
-
+function Record(props) {
+  const record = useLoading(getAllRecord, props);
   return (
       <>
           <div className={'Record'}>

@@ -24,7 +24,6 @@ db.sequelize.sync()
 
 
 app.post('/record/upload', async (req, res) => {
-    console.log(req.body);
     try {
         await db.Record.create({
             nickName: req.body.nickName,
@@ -34,21 +33,26 @@ app.post('/record/upload', async (req, res) => {
             minePercent: req.body.minePercent
         });
         res.send('success');
-    }catch{
+    }catch(err){
         res.send('error');
     }
 });
 
 app.get('/record/list', async (req, res) => {
     const a = await db.Record.findAll({
-        attributes: ['nickName', 'time', 'width', 'height', 'minePercent', 'createdAt'],
+        attributes: ['nickName', 'time', 'createdAt'],
         order: [
             'width',
             'height',
             'minePercent',
             'time',
             'createdAt'
-        ]
+        ],
+        where: {
+          width: req.query.width,
+          height: req.query.height,
+          minePercent: req.query.minePercent
+        }
     });
     res.send(a);
 });

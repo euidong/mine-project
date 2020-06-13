@@ -28,7 +28,7 @@ function App() {
       <Board modalOpen={modalOpen} HEIGHT={HEIGHT} WIDTH={WIDTH} MINE_PERCENT={MINE_PERCENT} />
       <SetGame setHEIGHT={setHEIGHT} setWIDTH={setWIDTH} setMINE_PERCENT={setMINE_PERCENT} />
       <ResultModal time={time.current} modalIsOpen={modalIsOpen} setModalOpen={setModalOpen} HEIGHT={HEIGHT} WIDTH={WIDTH} MINE_PERCENT={MINE_PERCENT} />
-      <Record />
+      <Record WIDTH={WIDTH} HEIGHT={HEIGHT} MINE_PERCENT={MINE_PERCENT}/>
     </div>
   );
 }

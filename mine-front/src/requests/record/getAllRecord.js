@@ -1,9 +1,15 @@
 import React from 'react';
 import axios from 'axios';
+import dateformat from 'dateformat';
 
-const getAllRecord = () => axios({
+const getAllRecord = (arg) => axios({
     url: process.env.REACT_APP_APISERVER + "/record/list",
-    method: "get"
+    method: "get",
+    params: {
+      width: arg.WIDTH,
+      height: arg.HEIGHT,
+      minePercent: arg.MINE_PERCENT
+    }
   })
   .then(res => {
     if (res.data.length === 0)
@@ -12,10 +18,8 @@ const getAllRecord = () => axios({
         return res.data.map(json => <li key={json.nickName}>
           {
             json.nickName + " " + 
-            json.time + "초" + 
-            json.width + " " + 
-            json.height + " " +
-            json.minePercent 
+            json.time + "초 " + 
+            dateformat(json.createdAt, 'yyyy mmmm dS')
           } </li>); 
   })
   .catch(error => {
