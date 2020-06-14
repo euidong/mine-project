@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mine-back
+  labels:
+    app: mine-back
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mine-back
+  template:
+    metadata:
+      labels:
+        app: mine-back
+    spec:
+      containers:
+      - env:
+        - name: WAIT_HOSTS
+          value: mine-db:3306
+        image: justicedong/mine-project_back:1.04
+        name: mine-back
+        ports:
+        - containerPort: 8000

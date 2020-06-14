@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mine-db
+  labels:
+    app: mine-db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mine-db
+  template:
+    metadata:
+      labels:
+        app: mine-db
+    spec:
+      containers:
+      - args:
+        - --character-set-server=utf8
+        - --collation-server=utf8_unicode_ci
+        name: mine-db
+        env:
+        - name: MYSQL_DATABASE
+          value: mineCollector
+        - name: MYSQL_ROOT_PASSWORD
+          value: "1234"
+        - name: TZ
+          value: Asia/Seoul
+        image: mysql:5.7
+        ports:
+        - containerPort: 3306
+        volumeMounts:
+        - mountPath: /var/lib/mysql
+          name: mine-db-claim0
+      volumes:
+      - name: mine-db-claim0
+        persistentVolumeClaim:
+          claimName: mine-db-claim0

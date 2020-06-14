@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mine-front
+  labels:
+    app: mine-front
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mine-front
+  template:
+    metadata:
+      labels:
+        app: mine-front
+    spec:
+      containers:
+        - name: mine-front
+          image: justicedong/mine-project_front:1.0
+          ports:
+          - containerPort: 80
