@@ -14,6 +14,12 @@
 <img src='./screenShot.png' width="500px">
 </p>
 
+### 실행
+```bash
+git clone https://github.com/euidong/mine-project.git
+cd mine-project
+docker-compose up --build
+```
 
 ### 유의 사항
 
