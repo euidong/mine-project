@@ -44,6 +44,7 @@ kubectl apply -f front-end-deploymnet.yml
 ```
 
 - localhost에 mapping
+
 front와 back의 소통은 외부 통신이기 때문에 port forwarding을 수행해주어야 한다.
 
 ```bash
