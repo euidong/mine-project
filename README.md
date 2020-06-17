@@ -7,6 +7,7 @@
 [![MySQL](https://img.shields.io/badge/MySQL-5.7.10-orange)](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-10.html)
 [![Docker](https://img.shields.io/badge/Docker-19.03.8-blue)](https://docs.docker.com/engine/release-notes/)
 [![Kubernetes](https://img.shields.io/badge/Kubernetes-1.16.5-lightgrey)](https://kubernetes.io/blog/2019/09/18/kubernetes-1-16-release-announcement/)
+[![LICENSE](https://img.shields.io/badge/License-MIT-blueviolet)](https://ko.wikipedia.org/wiki/MIT_%ED%97%88%EA%B0%80%EC%84%9C)
 
 </div>
 
