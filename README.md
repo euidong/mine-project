@@ -47,7 +47,7 @@ kubectl apply -f back-end-deployment.yml
 kubectl apply -f back-end-service.yml
 
 kubectl apply -f front-end-deployment.yml
-kubectl apply -f front-end-deploymnet.yml
+kubectl apply -f front-end-service.yml
 ```
 
 - localhost에 mapping
